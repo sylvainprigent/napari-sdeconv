@@ -1,4 +1,4 @@
-import napari_sdeconv
+#import napari_sdeconv
 import pytest
 
 # this is your plugin name declared in your napari.plugins entry point
