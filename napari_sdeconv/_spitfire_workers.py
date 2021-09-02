@@ -249,6 +249,20 @@ class Spitfire3DWidget(SNapariWidget):
 
     def toggle_advanced(self, value):
         """Change the parameters widget to advanced mode"""
+        if value:
+            self._weighting_value.setVisible(True)
+            self._weighting_label.setVisible(True)
+            self._model_value.setVisible(True)
+            self._model_label.setVisible(True)
+            self._niter_value.setVisible(True)
+            self._niter_label.setVisible(True)
+        else:
+            self._weighting_value.setVisible(False)
+            self._weighting_label.setVisible(False)
+            self._model_value.setVisible(False)
+            self._model_label.setVisible(False)
+            self._niter_value.setVisible(False)
+            self._niter_label.setVisible(False)
         self.advanced.emit(value)
         self.is_advanced = value
 

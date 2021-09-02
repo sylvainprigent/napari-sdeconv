@@ -49,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'napari-sdeconv'
-copyright = u'2015, Sylvain Prigent'
+copyright = u'2021, Sylvain Prigent'
 author = u'Sylvain Prigent'
 
 # The version info for the project you're documenting, acts as replacement for

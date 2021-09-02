@@ -6,7 +6,14 @@
 [![tests](https://github.com/sylvainprigent/napari-sdeconv/workflows/tests/badge.svg)](https://github.com/sylvainprigent/napari-sdeconv/actions)
 [![codecov](https://codecov.io/gh/sylvainprigent/napari-sdeconv/branch/master/graph/badge.svg)](https://codecov.io/gh/sylvainprigent/napari-sdeconv)
 
-2D and 3D image deconvolution
+2D and 3D image deconvolution plugins. Available methods are:
+- Wiener (2D and 3D)
+- Richardson-Lucy (2D and 3D)
+- Spitfire - hessian sparse regularized deconvolution (2D and 3D)
+
+Available plugins to create PSFs are:
+- PSF Gaussian (2D)
+- PSF Gibson-Lanni (3D)
 
 ----------------------------------
 
@@ -25,6 +32,14 @@ https://napari.org/docs/plugins/index.html
 You can install `napari-sdeconv` via [pip]:
 
     pip install napari-sdeconv
+    
+
+The deconvolution depends on FFTW c++ library. FFTW must be installed for the 
+deconvolution plugin to work. The easiest method to install FFTW is to use 
+conda:
+
+    conda install -c conda-forge fftw
+        
 
 ## Contributing
 
