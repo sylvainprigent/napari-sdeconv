@@ -53,7 +53,7 @@ jobs:
       # setup-miniconda: https://github.com/conda-incubator/setup-miniconda
       # and
       # tox-conda: https://github.com/tox-dev/tox-conda
-      - name: Install dependencies
+      - name: Test with tox on macOS
         if: runner.os == 'macOS'
         run: |
           sudo conda init bash
@@ -62,13 +62,7 @@ jobs:
           sudo conda install --yes -c conda-forge fftw
           sudo $CONDA/bin/python -m pip install --upgrade pip
           sudo $CONDA/bin/pip install setuptools tox tox-gh-actions
-
-      # this runs the platform-specific tests declared in tox.ini
-      - name: Test with tox
-        run: tox
-        env:
-          PLATFORM: ${{ matrix.platform }}
-
+          sudo $CONDA/bin/python -m tox
       - name: Coverage
         uses: codecov/codecov-action@v1
 
