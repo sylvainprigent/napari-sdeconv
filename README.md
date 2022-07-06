@@ -1,30 +1,24 @@
 # napari-sdeconv
 
-[![License](https://img.shields.io/pypi/l/napari-sdeconv.svg?color=green)](https://github.com/sylvainprigent/napari-sdeconv/raw/master/LICENSE)
+[![License BSD-3](https://img.shields.io/pypi/l/napari-sdeconv.svg?color=green)](https://github.com/sylvainprigent/napari-sdeconv/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/napari-sdeconv.svg?color=green)](https://pypi.org/project/napari-sdeconv)
 [![Python Version](https://img.shields.io/pypi/pyversions/napari-sdeconv.svg?color=green)](https://python.org)
 [![tests](https://github.com/sylvainprigent/napari-sdeconv/workflows/tests/badge.svg)](https://github.com/sylvainprigent/napari-sdeconv/actions)
-[![codecov](https://codecov.io/gh/sylvainprigent/napari-sdeconv/branch/master/graph/badge.svg)](https://codecov.io/gh/sylvainprigent/napari-sdeconv)
+[![codecov](https://codecov.io/gh/sylvainprigent/napari-sdeconv/branch/main/graph/badge.svg)](https://codecov.io/gh/sylvainprigent/napari-sdeconv)
+[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-sdeconv)](https://napari-hub.org/plugins/napari-sdeconv)
 
-2D and 3D image deconvolution plugins. Available methods are:
-- Wiener (2D and 3D)
-- Richardson-Lucy (2D and 3D)
-- Spitfire - hessian sparse regularized deconvolution (2D and 3D)
-
-Available plugins to create PSFs are:
-- PSF Gaussian (2D)
-- PSF Gibson-Lanni (3D)
+2D and 3D deconvolution
 
 ----------------------------------
 
-This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [cookiecutter-napari-plugin] template.
+This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
 
 <!--
 Don't miss the full getting started guide to set up your new package:
 https://github.com/napari/cookiecutter-napari-plugin#getting-started
 
 and review the napari docs for plugin developers:
-https://napari.org/docs/plugins/index.html
+https://napari.org/plugins/index.html
 -->
 
 ## Installation
@@ -32,14 +26,13 @@ https://napari.org/docs/plugins/index.html
 You can install `napari-sdeconv` via [pip]:
 
     pip install napari-sdeconv
-    
 
-The deconvolution depends on FFTW c++ library. FFTW must be installed for the 
-deconvolution plugin to work. The easiest method to install FFTW is to use 
-conda:
 
-    conda install -c conda-forge fftw
-        
+
+To install latest development version :
+
+    pip install git+https://github.com/sylvainprigent/napari-sdeconv.git
+
 
 ## Contributing
 
@@ -48,7 +41,7 @@ the coverage at least stays the same before you submit a pull request.
 
 ## License
 
-Distributed under the terms of the [GNU GPL v3.0] license,
+Distributed under the terms of the [BSD-3] license,
 "napari-sdeconv" is free and open source software
 
 ## Issues

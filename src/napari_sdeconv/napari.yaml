@@ -1,0 +1,39 @@
+name: napari-sdeconv
+display_name: napari sdeconv
+contributions:
+  commands:
+    - id: napari-sdeconv.make_sample_data
+      python_name: napari_sdeconv._sample_data:make_sample_data
+      title: Load sample data from napari sdeconv
+    - id: napari-sdeconv.wiener_widget
+      python_name: napari_sdeconv._sdeconv_widget:SWienerPlugin
+      title: Wiener deconvolution
+    - id: napari-sdeconv.richardson_lucy_widget
+      python_name: napari_sdeconv._sdeconv_widget:SRichardsonLucyPlugin
+      title: Richardson-Lucy deconvolution
+    - id: napari-sdeconv.spitfire_widget
+      python_name: napari_sdeconv._sdeconv_widget:SpitfirePlugin
+      title: Spitfire deconvolution
+    - id: napari-sdeconv.gaussian_widget
+      python_name: napari_sdeconv._spsf_widget:SGaussianPlugin
+      title: PSF Gaussian
+    - id: napari-sdeconv.gibson_lanni_widget
+      python_name: napari_sdeconv._spsf_widget:SGibsonLanniPlugin
+      title: PSF Gibson-Lanni
+
+
+  sample_data:
+    - command: napari-sdeconv.make_sample_data
+      display_name: napari sdeconv
+      key: unique_id.1
+  widgets:
+    - command: napari-sdeconv.gaussian_widget
+      display_name: PSF Gaussian
+    - command: napari-sdeconv.gibson_lanni_widget
+      display_name: PSF Gibson-Lanni
+    - command: napari-sdeconv.wiener_widget
+      display_name: Wiener deconvolution
+    - command: napari-sdeconv.richardson_lucy_widget
+      display_name: Richardson-Lucy deconvolution
+    - command: napari-sdeconv.spitfire_widget
+      display_name: Spitfire deconvolution

@@ -21,13 +21,7 @@ You can install `napari-sdeconv` via [pip]:
     pip install napari-sdeconv
     
 
-Note that the current version of the package on support python 3.9    
-
-The deconvolution depends on FFTW c++ library. FFTW must be installed for the 
-deconvolution plugin to work. The easiest method to install FFTW is to use 
-conda:
-
-    conda install -c conda-forge fftw
+Note that the current version of the package only support python 3.9    
 
 ## Contributing
 
