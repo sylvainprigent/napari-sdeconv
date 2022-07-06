@@ -1,36 +1,36 @@
 import numpy as np
 
-from napari_sdeconv import ExampleQWidget, example_magic_widget
+from napari_sdeconv import SWienerPlugin, SRichardsonLucyPlugin, SpitfirePlugin
 
 
-# make_napari_viewer is a pytest fixture that returns a napari viewer object
-# capsys is a pytest fixture that captures stdout and stderr output streams
-def test_example_q_widget(make_napari_viewer, capsys):
+def test_wiener_widget(make_napari_viewer, capsys):
     # make viewer and add an image layer using our fixture
     viewer = make_napari_viewer()
     viewer.add_image(np.random.random((100, 100)))
 
     # create our widget, passing in the viewer
-    my_widget = ExampleQWidget(viewer)
+    my_widget = SWienerPlugin(viewer)
 
-    # call our widget method
-    my_widget._on_click()
-
-    # read captured output and check that it's as we expected
-    captured = capsys.readouterr()
-    assert captured.out == "napari has 1 layers\n"
+    return True
 
 
-def test_example_magic_widget(make_napari_viewer, capsys):
+def test_richardson_lucy_widget(make_napari_viewer, capsys):
+    # make viewer and add an image layer using our fixture
     viewer = make_napari_viewer()
-    layer = viewer.add_image(np.random.random((100, 100)))
+    viewer.add_image(np.random.random((100, 100)))
 
-    # this time, our widget will be a MagicFactory or FunctionGui instance
-    my_widget = example_magic_widget()
+    # create our widget, passing in the viewer
+    my_widget = SRichardsonLucyPlugin(viewer)
 
-    # if we "call" this object, it'll execute our function
-    my_widget(viewer.layers[0])
+    return True
 
-    # read captured output and check that it's as we expected
-    captured = capsys.readouterr()
-    assert captured.out == f"you have selected {layer}\n"
+
+def test_spitfire_widget(make_napari_viewer, capsys):
+    # make viewer and add an image layer using our fixture
+    viewer = make_napari_viewer()
+    viewer.add_image(np.random.random((100, 100)))
+
+    # create our widget, passing in the viewer
+    my_widget = SpitfirePlugin(viewer)
+
+    return True
