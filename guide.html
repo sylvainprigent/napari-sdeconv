@@ -1,95 +1,45 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Guide &#8212; napari-sdeconv  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide &mdash; STracking 0.1.9 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Help" href="help.html" />
-    <link rel="prev" title="About" href="about.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="About" href="about.html" /> 
+</head>
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <section id="guide">
-<h1>Guide<a class="headerlink" href="#guide" title="Permalink to this heading">¶</a></h1>
-<p>This page aims at guiding the <cite>napari-sdeconv</cite> user for scientific image deconvolution. The package contains two types
-of plugins: PSF generators and deconvolution algorithms.</p>
-<section id="psf-generators">
-<h2>PSF generators<a class="headerlink" href="#psf-generators" title="Permalink to this heading">¶</a></h2>
-<p>For 3D image deconvolution, a noise free PSF is needed. In most of the cases it is easier to use a synthetic PSF than
-denoising a measured PSF. <cite>napari-sdeconv</cite> provides a plugin called <em>S PSF Gibson-Lanni</em> to generate a synthetic 3D
-microscope PSF using the Gibson-Lanni model. The different parameters corresponds to the settings of the microscope.</p>
-<a class="reference internal image-reference" href="_images/gibson_lanni.png"><img alt="_images/gibson_lanni.png" src="_images/gibson_lanni.png" style="width: 600px;" /></a>
-</section>
-<section id="deconvolution-with-wiener">
-<h2>Deconvolution with Wiener<a class="headerlink" href="#deconvolution-with-wiener" title="Permalink to this heading">¶</a></h2>
-<p>The deconvolution with the Wiener filter is the fastest deconvolution since it is a direct inverse transform in the
-Fourrier space. I involve a regularisation to filter the high frequencies in the Fourrier domain. Thus a regularisation
-parameter called <cite>Lambda</cite> needs to be set manually to balance the high frequency filter. The <cite>Lambda</cite> value should be
-small and vary with the image content and pixels intensities.</p>
-<a class="reference internal image-reference" href="_images/wiener3d.png"><img alt="_images/wiener3d.png" src="_images/wiener3d.png" style="width: 600px;" /></a>
-</section>
-<section id="deconvolution-with-richardson-lucy">
-<h2>Deconvolution with Richardson-Lucy<a class="headerlink" href="#deconvolution-with-richardson-lucy" title="Permalink to this heading">¶</a></h2>
-<p>The Richardson-Lucy deconvolution is one of the most known deconvolution algorithm. It aims at constructing a deblurred
-image by optimizing the likelihood criterion. Richardson-Lucy is an iterative procedure. It then involve the number
-of iterations as a parameter that has to be manually set.</p>
-<a class="reference internal image-reference" href="_images/richardson_lucy3D.png"><img alt="_images/richardson_lucy3D.png" src="_images/richardson_lucy3D.png" style="width: 600px;" /></a>
-</section>
-<section id="deconvolution-with-spitfire">
-<h2>Deconvolution with Spitfire<a class="headerlink" href="#deconvolution-with-spitfire" title="Permalink to this heading">¶</a></h2>
-<p>Spitfire is a variational method for image deconvolution. It particularity is to regularize with two terms to create
-both a smooth and sparse deblurred image. Spitfire is an iterative procedure. It is then more time consuming than Wiener
-or Richardson-Lucy, but gives more accurate results thanks to the regularization. Spitfire involve a regularisation
-parameter called <cite>Regularisation</cite> needs to be set manually to balance the weight of the regularization term. A good
-starting value is 12 for 2D images and 30 for 3D images.</p>
-<a class="reference internal image-reference" href="_images/spitfire3D.png"><img alt="_images/spitfire3D.png" src="_images/spitfire3D.png" style="width: 600px;" /></a>
-</section>
-</section>
-
-
-          </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">napari-sdeconv</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> STracking
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#psf-generators">PSF generators</a></li>
@@ -101,51 +51,96 @@ starting value is 12 for 2D images and 30 for 3D images.</p>
 <li class="toctree-l1"><a class="reference internal" href="help.html">Getting Help</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="about.html" title="previous chapter">About</a></li>
-      <li>Next: <a href="help.html" title="next chapter">Getting Help</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Sylvain Prigent.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/guide.rst.txt"
-          rel="nofollow">Page source</a>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">STracking</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guide">
+<h1>Guide<a class="headerlink" href="#guide" title="Permalink to this heading"></a></h1>
+<p>This page aims at guiding the <cite>napari-sdeconv</cite> user for scientific image deconvolution. The package contains two types
+of plugins: PSF generators and deconvolution algorithms.</p>
+<section id="psf-generators">
+<h2>PSF generators<a class="headerlink" href="#psf-generators" title="Permalink to this heading"></a></h2>
+<p>For 3D image deconvolution, a noise free PSF is needed. In most of the cases it is easier to use a synthetic PSF than
+denoising a measured PSF. <cite>napari-sdeconv</cite> provides a plugin called <em>S PSF Gibson-Lanni</em> to generate a synthetic 3D
+microscope PSF using the Gibson-Lanni model. The different parameters corresponds to the settings of the microscope.</p>
+<a class="reference internal image-reference" href="_images/gibson_lanni.png"><img alt="_images/gibson_lanni.png" src="_images/gibson_lanni.png" style="width: 600px;" /></a>
+</section>
+<section id="deconvolution-with-wiener">
+<h2>Deconvolution with Wiener<a class="headerlink" href="#deconvolution-with-wiener" title="Permalink to this heading"></a></h2>
+<p>The deconvolution with the Wiener filter is the fastest deconvolution since it is a direct inverse transform in the
+Fourrier space. I involve a regularisation to filter the high frequencies in the Fourrier domain. Thus a regularisation
+parameter called <cite>Lambda</cite> needs to be set manually to balance the high frequency filter. The <cite>Lambda</cite> value should be
+small and vary with the image content and pixels intensities.</p>
+<a class="reference internal image-reference" href="_images/wiener3d.png"><img alt="_images/wiener3d.png" src="_images/wiener3d.png" style="width: 600px;" /></a>
+</section>
+<section id="deconvolution-with-richardson-lucy">
+<h2>Deconvolution with Richardson-Lucy<a class="headerlink" href="#deconvolution-with-richardson-lucy" title="Permalink to this heading"></a></h2>
+<p>The Richardson-Lucy deconvolution is one of the most known deconvolution algorithm. It aims at constructing a deblurred
+image by optimizing the likelihood criterion. Richardson-Lucy is an iterative procedure. It then involve the number
+of iterations as a parameter that has to be manually set.</p>
+<a class="reference internal image-reference" href="_images/richardson_lucy3D.png"><img alt="_images/richardson_lucy3D.png" src="_images/richardson_lucy3D.png" style="width: 600px;" /></a>
+</section>
+<section id="deconvolution-with-spitfire">
+<h2>Deconvolution with Spitfire<a class="headerlink" href="#deconvolution-with-spitfire" title="Permalink to this heading"></a></h2>
+<p>Spitfire is a variational method for image deconvolution. It particularity is to regularize with two terms to create
+both a smooth and sparse deblurred image. Spitfire is an iterative procedure. It is then more time consuming than Wiener
+or Richardson-Lucy, but gives more accurate results thanks to the regularization. Spitfire involve a regularisation
+parameter called <cite>Regularisation</cite> needs to be set manually to balance the weight of the regularization term. A good
+starting value is 12 for 2D images and 30 for 3D images.</p>
+<a class="reference internal image-reference" href="_images/spitfire3D.png"><img alt="_images/spitfire3D.png" src="_images/spitfire3D.png" style="width: 600px;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="help.html" class="btn btn-neutral float-right" title="Getting Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
-    
+  <hr/>
 
-    
-  </body>
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, STracking.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
